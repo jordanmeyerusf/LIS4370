@@ -1,0 +1,17 @@
+# Define a dataset for S3
+s3 <- list(name = "John", age = 25, major = "Computer Science")
+
+# Display S3
+s3
+
+# Define a class for S4
+setClass("Student",
+         slots = c(name = "character",
+                   age = "numeric",
+                   major = "character"))
+
+# Create a new object of the Student class
+s4 <- new("Student", name = "Jane", age = 22, major = "Biology")
+
+# Display S4
+s4
