@@ -1,0 +1,10 @@
+Package: PrettyPlot
+Title: The package is designed to elevate the aesthetics and clarity of common plots used in data analysis and visualization.
+Version: 0.0.0.9000
+Authors@R: "Jordan Meyer <jordanmeyer2000@gmail.com> [aut, cre]"
+Description: The "PrettyPlot" package helps users make their plots look better and easier to understand. 
+It provides simple tools to add labels, change colors, and make interactive features. By integrating with popular plotting 
+libraries, it makes creating beautiful and informative plots a breeze, letting users focus on their data insights.
+Depends: R (>= 3.1.2)
+License: CC0 
+LazyData: true
