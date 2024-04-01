@@ -1,0 +1,67 @@
+# PrettyPlot Package Documentation
+
+## Annotation Functions
+The Annotation Functions module of the PrettyPlot package provides intuitive functions 
+to add annotations such as text labels, arrows, shapes, and lines to plots. These 
+annotations enhance interpretability and help highlight key insights in the data 
+visualization. Users can easily customize the appearance and placement of annotations
+to suit their specific needs, improving the clarity and communicative power of their plots.
+
+# Example usage of annotation functions
+library(PrettyPlot)
+
+# Create a scatter plot
+data <- data.frame(x = rnorm(100), y = rnorm(100))
+plot <- ggplot(data, aes(x, y)) + geom_point()
+
+# Add text annotation
+plot_with_annotation <- add_annotation(plot, x = 0, y = 0, label = "Center", color = "red")
+
+# Add arrow annotation
+plot_with_arrow <- add_arrow(plot_with_annotation, x = 0, y = 0, xend = 1, yend = 1, color = "blue")
+
+# Display the plot with annotations
+print(plot_with_arrow)
+
+## Theme Templates
+The Theme Templates module offers a diverse collection of pre-defined theme templates 
+designed for quick adjustment of plot aesthetics. These templates allow users to 
+effortlessly change font styles, colors, grid lines, and background settings, 
+ensuring consistency and coherence across multiple plots. By providing easy-to-use 
+themes, this module streamlines the process of creating visually appealing and professional-looking graphics.
+
+# Example usage of theme templates
+library(PrettyPlot)
+
+# Create a bar plot
+data <- data.frame(categories = letters[1:5], values = runif(5))
+plot <- ggplot(data, aes(categories, values)) + geom_bar(stat = "identity")
+
+# Apply a predefined theme
+plot_with_theme <- apply_theme(plot, theme = "classic")
+
+# Display the plot with the applied theme
+print(plot_with_theme)
+
+## Plot Layout Tools
+The Plot Layout Tools module facilitates the arrangement of multiple plots within 
+a single figure. It offers a variety of options for grid layouts, faceting, and 
+alignment, allowing users to optimize the visual presentation of their plots. With
+these tools, users can create complex multi-panel figures that effectively convey 
+comparisons and relationships between different datasets or variables.
+
+# Example usage of plot layout tools
+library(PrettyPlot)
+
+# Create two plots
+data1 <- data.frame(x = 1:10, y = 1:10)
+plot1 <- ggplot(data1, aes(x, y)) + geom_line()
+
+data2 <- data.frame(x = 1:10, y = 10:1)
+plot2 <- ggplot(data2, aes(x, y)) + geom_line()
+
+# Arrange plots in a grid layout
+grid_plot <- arrange_plots(plot1, plot2, nrow = 2, ncol = 1)
+
+# Display the grid layout
+print(grid_plot)
