@@ -1,0 +1,4 @@
+export(add_annotation)
+export(add_arrow)
+export(custom_theme)
+export(pretty_animate_plot)

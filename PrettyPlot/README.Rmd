@@ -1,0 +1,86 @@
+# PrettyPlot
+
+The PrettyPlot package provides a collection of functions to enhance data visualization in R using ggplot2.
+
+## Installation
+
+You can install the PrettyPlot package from GitHub using the `devtools` package:
+
+devtools::install_github("jordanmeyerusf/PrettyPlot")
+
+# Functions
+ 
+add_annotation: Adds text annotations to a plot at specified coordinates.
+
+add_arrow: Adds arrow annotations from one point to another on a plot.
+
+custom_theme: Applies a custom theme to a plot with customizable visual properties.
+
+pretty_animate_plot: Creates animated plots using gganimate with tidy evaluation.
+
+For detailed usage instructions and examples, please refer to the package documentation.
+
+# Example Usage
+
+# Example usage of annotation functions with mtcars dataset
+library(ggplot2)
+
+# Load mtcars dataset
+data(mtcars)
+
+# Create a scatter plot of mpg vs. wt
+plot <- ggplot(mtcars, aes(x = wt, y = mpg)) + geom_point()
+
+# Add text annotation at a specific point
+plot_with_annotation <- add_annotation(plot, x = 3, y = 20, label = "High MPG", color = "blue")
+
+# Add arrow annotation from one point to another
+plot_with_arrow <- add_arrow(plot_with_annotation, x = 4, y = 15, xend = 2, yend = 30, color = "red")
+
+# Display the plot with annotations
+print(plot_with_arrow)
+
+# Example usage of custom_theme with mtcars dataset
+library(ggplot2)
+
+# Load mtcars dataset
+data(mtcars)
+
+# Create a scatter plot of mpg vs. wt with a linear regression line
+plot <- ggplot(mtcars, aes(x = wt, y = mpg)) + 
+  geom_point() +
+  geom_smooth(method = "lm") +  # Add linear regression line
+  labs(x = "Weight", y = "Miles per gallon", title = "Fuel Efficiency")
+
+# Apply the custom theme with customized visual properties
+plot_with_custom_theme <- custom_theme(plot, 
+                                       font_size = 14, 
+                                       font_color = "darkblue",
+                                       background_color = "lightgray",
+                                       axis_color = "black",
+                                       axis_label_size = 12,
+                                       axis_title_size = 16,
+                                       axis_tick_size = 10,
+                                       plot_title_size = 18,
+                                       legend_title_size = 14,
+                                       legend_text_size = 12,
+                                       show_grid = TRUE,
+                                       point_color = "red",
+                                       point_size = 3,
+                                       line_color = "blue",
+                                       line_width = 1)
+
+# Display the plot with the custom theme
+print(plot_with_custom_theme)
+
+# Example usage of pretty_animate_plot function with iris dataset
+library(ggplot2)
+library(gganimate)
+
+# Create animated scatter plot of sepal length and sepal width over time
+anim_plot <- pretty_animate_plot(data = iris, x = Sepal.Length, y = Sepal.Width, frame = Species,
+                                 title = "Sepal Length vs. Sepal Width by Species", xlab = "Sepal Length", ylab = "Sepal Width",
+                                 duration = 3)
+
+# Display the animated plot
+anim_plot
